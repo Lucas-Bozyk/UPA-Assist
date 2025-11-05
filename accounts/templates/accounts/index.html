@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPA Assist - Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo ao UPA Assist</h1>
+        <p>Sistema de assistência para Unidades de Pronto Atendimento</p>
+        <div class="buttons">
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="btn">Logout</a>
+                {% if user.user_type == 'medico' %}
+                    <a href="{% url 'medico_dashboard' %}" class="btn">Dashboard Médico</a>
+                {% elif user.user_type == 'enfermeiro' %}
+                    <a href="{% url 'enfermeiro_dashboard' %}" class="btn">Dashboard Enfermeiro</a>
+                {% elif user.user_type == 'hospital' %}
+                    <a href="{% url 'hospital_dashboard' %}" class="btn">Dashboard Hospital</a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'login' %}" class="btn">Login</a>
+                <a href="{% url 'register' %}" class="btn">Registrar</a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
