@@ -13,7 +13,7 @@ Sistema de gerenciamento e triagem de pacientes desenvolvido em **Django**.
 
 ```bash
 pip install pipenv
-pipenv shell (Cria ambiente Virtual)
+python -m pipenv shell (Cria ambiente Virtual)
 pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
