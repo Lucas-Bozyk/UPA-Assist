@@ -1,18 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Enfermeiro</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Dashboard Enfermeiro</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+  <link rel="stylesheet" href="{% static 'accounts/dashboard.css' %}">
+  <link rel="stylesheet" href="{% static 'accounts/dashboard_enfer.css' %}">
 </head>
-<body>
-    <div class="container">
-        <h1>Dashboard Enfermeiro</h1>
-        <p>Bem-vindo, {{ user.username }}!</p>
-        <p>Você está logado como Enfermeiro.</p>
-        <a href="{% url 'logout' %}" class="btn">Logout</a>
+<body class="app-root dashboard">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1 class="brand">UPA Assist</h1>
+      <nav class="top-actions">
+        <span class="user">Olá, {{ user.username }}</span>
+        <a class="btn ghost" href="{% url 'logout' %}">Sair</a>
+      </nav>
     </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-brand">Enfermagem</div>
+      <nav class="sidebar-nav">
+        <a class="active" href="#">Pacientes</a>
+        <a href="#">Medicações</a>
+        <a href="#">Relatórios</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="container dashboard-main">
+    <section class="welcome card">
+      <h2>Olá, {{ user.username }}</h2>
+      <p class="muted">Enfermeiro — acompanhe e administre o atendimento de forma eficiente.</p>
+    </section>
+
+    <section class="grid dashboard-grid">
+      <div class="card">
+        <h3>Pacientes</h3>
+        <p>Acompanhe os pacientes que precisam de atendimento.</p>
+        <a class="btn" href="#">Ver Lista</a>
+      </div>
+
+      <div class="card">
+        <h3>Medicações</h3>
+        <p>Gerencie e consulte medicações administradas.</p>
+        <a class="btn" href="#">Acessar</a>
+      </div>
+
+      <div class="card">
+        <h3>Relatórios</h3>
+        <p>Gere relatórios e atualize o fluxo de atendimento.</p>
+        <a class="btn" href="#">Abrir</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
