@@ -1,0 +1,15 @@
+<h1>Receitas Médicas</h1>
+<hr>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ formset.management_form }}
+
+    {% for form in formset %}
+        <div class="card p-3 my-3">
+            {{ form.as_p }}
+        </div>
+    {% endfor %}
+
+    <button type="submit" class="btn btn-success">Finalizar Atendimento</button>
+</form>

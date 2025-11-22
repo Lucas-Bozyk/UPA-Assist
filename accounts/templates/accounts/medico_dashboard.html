@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Dashboard Médico</title>
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+  <link rel="stylesheet" href="{% static 'accounts/dashboard.css' %}">
+  <link rel="stylesheet" href="{% static 'accounts/dashboard_med.css' %}">
+</head>
+
+<body class="app-root dashboard">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1 class="brand">UPA Assist</h1>
+      <nav class="top-actions">
+        <span class="user">Olá, {{ user.username }}</span>
+        <a class="btn ghost" href="{% url 'logout' %}">Sair</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-brand">Painel Médico</div>
+      <nav class="sidebar-nav">
+        <a class="active" href="#">Pacientes</a>
+        <a href="#">Prontuários</a>
+        <a href="#">Prescrições</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="container dashboard-main">
+
+    <section class="dashboard-card shadow-lg">
+      <h2>Olá, Dr. {{ user.username }}</h2>
+      <p class="muted">Gerencie pacientes, consultas e documentos clínicos.</p>
+    </section>
+
+    <section class="grid dashboard-grid">
+
+      <div class="dashboard-card card shadow-lg">
+        <h3>Pacientes</h3>
+        <p>Visualize e acompanhe pacientes em atendimento.</p>
+        <a class="btn primary" href="#">Abrir</a>
+      </div>
+
+      <div class="dashboard-card card shadow-lg">
+        <h3>Prontuários</h3>
+        <p>Acesse, edite e acompanhe prontuários médicos.</p>
+        <a class="btn primary" href="#">Ver Prontuários</a>
+      </div>
+
+      <div class="dashboard-card card shadow-lg">
+        <h3>Prescrições</h3>
+        <p>Crie prescrições e orientações de forma rápida.</p>
+        <a class="btn primary" href="#">Nova Prescrição</a>
+      </div>
+
+      <div class="dashboard-card card shadow-lg">
+        <h3>Novo Atendimento</h3>
+        <p>Inicie um novo atendimento para um paciente.</p>
+        <a class="btn primary" href="{% url 'atendimento_paciente' %}">Iniciar</a>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

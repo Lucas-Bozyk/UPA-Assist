@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>UPA Assist - Login</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+  <link rel="stylesheet" href="{% static 'accounts/dashboard.css' %}">
+</head>
+<body class="app-root auth-page">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1 class="brand">UPA Assist</h1>
+      <nav class="top-actions">
+        <a class="btn ghost" href="{% url 'index' %}">Voltar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container narrow">
+    <div class="card shadow-lg auth-card">
+      <h2 class="mb-8">Acessar Conta</h2>
+
+      <form method="post" class="form">
+        {% csrf_token %}
+        <div class="form-row">
+          <label for="id_username">Usuário</label>
+          <input id="id_username" name="username" type="text" required />
+        </div>
+
+        <div class="form-row">
+          <label for="id_password">Senha</label>
+          <input id="id_password" name="password" type="password" required />
+        </div>
+
+        <button type="submit" class="btn primary full">Entrar</button>
+      </form>
+
+      <div class="form-foot">
+        <p>Não tem conta? <a href="{% url 'register' %}">Registrar</a></p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

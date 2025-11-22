@@ -1,0 +1,5 @@
+/* accounts/static/accounts/dashboard_med.css */
+:root{ --accent-color: #0ea5e9; --accent-contrast:#0369a1 }
+
+.sidebar .sidebar-brand{ background: linear-gradient(90deg,#7dd3fc22,#0ea5e922); color:var(--accent-contrast) }
+.btn.primary{ background: linear-gradient(90deg,#2563eb,#60a5fa) }

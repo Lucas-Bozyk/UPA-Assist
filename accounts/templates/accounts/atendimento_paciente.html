@@ -1,0 +1,30 @@
+<div class="container mt-4">
+    <h1>Cadastro do Paciente</h1>
+    <p class="text-muted mb-4">Etapa 1 de 3</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="card p-4 mb-4">
+            <h4 class="mb-3">Dados do Paciente</h4>
+
+            {{ form.non_field_errors }}
+            <div class="form-group mb-3">
+                {{ form.nome.label_tag }}
+                {{ form.nome }}
+                {{ form.nome.errors }}
+            </div>
+
+            <div class="form-group mb-3">
+                {{ form.data_nascimento.label_tag }}
+                {{ form.data_nascimento }}
+                {{ form.data_nascimento.errors }}
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Continuar para o Prontuário →
+        </button>
+    </form>
+</div>

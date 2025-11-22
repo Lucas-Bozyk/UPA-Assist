@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>UPA Assist - Home</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+  <link rel="stylesheet" href="{% static 'accounts/dashboard.css' %}">
+</head>
+<body class="app-root app-home">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1 class="brand">UPA Assist</h1>
+      <nav class="top-actions">
+        {% if user.is_authenticated %}
+          <a class="btn ghost" href="{% url 'logout' %}">Sair</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero card shadow-lg">
+      <div class="hero-left">
+        <h2>Bem-vindo ao <span class="accent">UPA Assist</span></h2>
+        <p class="muted">Sistema de assistência para Unidades de Pronto Atendimento — rápido, seguro e responsivo.</p>
+
+        <div class="actions">
+          {% if user.is_authenticated %}
+            {% if user.user_type == 'medico' %}
+              <a class="btn primary" href="{% url 'medico_dashboard' %}">Ir para Dashboard Médico</a>
+            {% elif user.user_type == 'enfermeiro' %}
+              <a class="btn primary" href="{% url 'enfermeiro_dashboard' %}">Ir para Dashboard Enfermeiro</a>
+            {% elif user.user_type == 'hospital' %}
+              <a class="btn primary" href="{% url 'hospital_dashboard' %}">Ir para Dashboard Hospital</a>
+            {% endif %}
+            <a class="btn ghost" href="{% url 'logout' %}">Logout</a>
+          {% else %}
+            <a class="btn primary" href="{% url 'login' %}">Login</a>
+            <a class="btn ghost" href="{% url 'register' %}">Registrar</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="stats grid-3">
+          <div class="stat card-sm">
+            <div class="stat-title">Atendimentos</div>
+            <div class="stat-value">—</div>
+          </div>
+          <div class="stat card-sm">
+            <div class="stat-title">Equipe</div>
+            <div class="stat-value">—</div>
+          </div>
+          <div class="stat card-sm">
+            <div class="stat-title">Prontuários</div>
+            <div class="stat-value">—</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

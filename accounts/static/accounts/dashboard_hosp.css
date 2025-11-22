@@ -1,0 +1,5 @@
+/* accounts/static/accounts/dashboard_hosp.css */
+:root{ --accent-color: #7c3aed; --accent-contrast:#4c1d95 }
+
+.sidebar .sidebar-brand{ background: linear-gradient(90deg,#ddd6fe22,#7c3aed22); color:var(--accent-contrast) }
+.btn.primary{ background: linear-gradient(90deg,#4338ca,#7c3aed) }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>UPA Assist - Registrar</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+  <link rel="stylesheet" href="{% static 'accounts/dashboard.css' %}">
+</head>
+<body class="app-root auth-page">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1 class="brand">UPA Assist</h1>
+      <nav class="top-actions">
+        <a class="btn ghost" href="{% url 'index' %}">Voltar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container narrow">
+    <div class="card shadow-lg auth-card">
+      <h2 class="mb-8">Criar Conta</h2>
+
+      <form method="post" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn primary full">Registrar</button>
+      </form>
+
+      <div class="form-foot">
+        <p>Já tem conta? <a href="{% url 'login' %}">Login</a></p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

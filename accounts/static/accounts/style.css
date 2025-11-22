@@ -1,0 +1,168 @@
+/* accounts/static/accounts/style.css
+   Global styles, variables and utilities
+*/
+
+:root{
+  --bg: #0f1724;        /* used for subtle backgrounds in some components, but main is light */
+  --page-bg: #f6f8fb;
+  --card-bg: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --primary: #2563eb;   /* blue */
+  --primary-600: #1d4ed8;
+  --accent: linear-gradient(135deg,#2563eb,#7c3aed);
+  --success: #16a34a;
+  --danger: #ef4444;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 12px;
+  --shadow-soft: 0 6px 18px rgba(15,23,36,0.08);
+  --shadow-strong: 0 12px 36px rgba(15,23,36,0.12);
+  --max-width: 1100px;
+  --gap: 20px;
+}
+
+/* Reset */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background:var(--page-bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  margin:0;
+}
+
+/* Utility classes */
+.container{
+  width:100%;
+  max-width:var(--max-width);
+  margin:34px auto;
+  padding:0 20px;
+}
+.narrow{max-width:520px}
+.fullwidth{max-width:1200px}
+
+.card{
+  background:var(--card-bg);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow-soft);
+}
+
+.card-sm{padding:12px}
+.shadow-lg{box-shadow:var(--shadow-strong)}
+
+/* Typography */
+.brand{font-weight:700; color:var(--primary); font-size:20px}
+h1,h2,h3{margin:0 0 8px 0}
+.muted{color:var(--muted); font-size:14px}
+.mb-8{margin-bottom:8px}
+
+/* Buttons */
+.btn{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:10px;
+  text-decoration:none;
+  cursor:pointer;
+  border:none;
+  font-weight:600;
+  font-size:14px;
+}
+.btn.primary{
+  background:var(--primary);
+  color:#fff;
+  box-shadow:0 6px 18px rgba(37,99,235,0.12);
+}
+.btn.ghost{
+  background:transparent;
+  color:var(--primary);
+  border:1px solid rgba(37,99,235,0.12);
+}
+.btn.full{display:block; width:100%}
+
+/* Topbar */
+.topbar{
+  width:100%;
+  background:transparent;
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter: blur(6px);
+}
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:16px 20px;
+}
+
+/* Grid helpers */
+.grid{display:grid; gap:var(--gap)}
+.grid-3{grid-template-columns:repeat(3,1fr); gap:12px}
+@media (max-width:880px){ .grid-3{grid-template-columns:repeat(1,1fr)} }
+
+/* Forms */
+.form{display:block}
+.form-row{margin-bottom:12px}
+label{display:block; font-weight:600; margin-bottom:6px}
+input,select,textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid #e6e9ef;
+  background:#fff;
+  font-size:14px;
+  outline:none;
+}
+input:focus{box-shadow:0 6px 18px rgba(37,99,235,0.08); border-color:var(--primary-600)}
+
+/* Small helpers */
+.muted-small{color:var(--muted); font-size:13px}
+.center{text-align:center}
+.mt-15{margin-top:15px}
+
+/* Responsive */
+@media (max-width:680px){
+  .topbar-inner{padding:12px}
+  .container{margin:20px auto}
+}
+/* ================================
+   CENTRALIZAÇÃO PARA DASHBOARDS
+   ================================ */
+
+.center-page {
+  min-height: 100vh;                    /* ocupa a tela inteira */
+  display: flex;
+  align-items: center;                  /* centraliza vertical */
+  justify-content: center;              /* centraliza horizontal */
+  padding: 20px;
+}
+
+.dashboard-card {
+  background: var(--card-bg);
+  padding: 32px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-strong);
+  text-align: center;
+  width: 100%;
+  max-width: 480px;
+}
+
+.dashboard-card h1 {
+  margin-bottom: 12px;
+  font-size: 26px;
+}
+
+.dashboard-card p {
+  margin-bottom: 8px;
+}
+
+.dashboard-card .btn {
+  margin-top: 14px;
+}

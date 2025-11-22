@@ -1,0 +1,4 @@
+- [x] Add import for View in accounts/views.py
+- [x] Change template_name in AtendimentoView to 'accounts/atendimento.html'
+- [x] Update accounts/urls.py: remove atendimento_view from import, change path to 'atendimento/', change view to AtendimentoView.as_view()
+- [x] Update redirect in AtendimentoView post method to 'atendimento'

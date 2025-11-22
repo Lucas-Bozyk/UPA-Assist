@@ -1,0 +1,5 @@
+/* accounts/static/accounts/dashboard_enfer.css */
+:root{ --accent-color: #10b981; --accent-contrast:#065f46 }
+
+.sidebar .sidebar-brand{ background: linear-gradient(90deg,#bbf7d022,#10b98122); color:var(--accent-contrast) }
+.btn.primary{ background: linear-gradient(90deg,#10b981,#34d399) }
